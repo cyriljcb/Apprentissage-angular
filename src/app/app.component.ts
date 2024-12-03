@@ -29,13 +29,13 @@ export class AppComponent implements OnInit {
           "une photo de chien ressemblant à Upsy",
           "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRKdx7Q1i6MohqU96M9ApDEOdyvZNOJSyXjaAwKHwj7xVd2FFZMVoaPo6vXKZitaO8bQUXJ53JmOhFnPpibpINNmw",
           new Date(),
-          3 ),
+          150 ),
           new FaceSnap(
             "Teckel",
             "une photo de teckel",
             "https://tipaw-api-assets.s3.eu-central-1.amazonaws.com/img_uploads/e96e7c0e-92a0-4e76-bc41-890928b5dab9___.webp",
             new Date(),
-            4
+            254
           )
     ]
     this.faceSnaps[1].location = "dans le jardin";
