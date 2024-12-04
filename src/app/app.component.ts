@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
         new Date(),
         2 ),
         new FaceSnap(
-          "Upsy", 
+          "upsy", 
           "une photo de chien ressemblant à Upsy",
           "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRKdx7Q1i6MohqU96M9ApDEOdyvZNOJSyXjaAwKHwj7xVd2FFZMVoaPo6vXKZitaO8bQUXJ53JmOhFnPpibpINNmw",
           new Date(),
