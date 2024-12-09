@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from './header/header.component';
 import { RouterOutlet } from '@angular/router';
-import { interval } from 'rxjs';
+import { filter, interval, map, Observable, tap } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
@@ -9,15 +10,27 @@ import { interval } from 'rxjs';
   standalone:true,
   imports: [
     HeaderComponent,
-    RouterOutlet
+    RouterOutlet,
+    CommonModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent  implements OnInit{
+  interval$!: Observable<string>;
+  
   ngOnInit(): void {
-    const interval$ = interval(1000);
-    interval$.subscribe(value=>console.log(value))
-    setTimeout(()=>interval$.subscribe(value=>console.log(value)), 3000);
+    this.interval$ = interval(1000).pipe(
+      filter(value => value % 3 === 0),
+      map(value => value % 2 === 0 ? 
+        `Je suis ${value} et je suis un nombre pair` : 
+        `Je suis ${value} et je suis un nombre impair`),
+      tap(text => this.logger(text)),
+      
+    );
+  }
+
+  logger(text:string){
+    console.log(`Log : ${text}`);
   }
 }
