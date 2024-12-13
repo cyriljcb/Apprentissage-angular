@@ -1,19 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FaceSnap } from '../models/face-snap';
-import { DatePipe, LowerCasePipe, NgClass, NgStyle, TitleCasePipe, UpperCasePipe } from '@angular/common';
 import { FaceSnapService } from '../services/face-snaps.service';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-single-face-snap',
-  standalone: true,
-  imports: [
-    NgStyle,
-    NgClass,
-    TitleCasePipe,
-    DatePipe,
-    RouterLink
-  ],
+  standalone:false,
   templateUrl: './single-face-snap.component.html',
   styleUrl: './single-face-snap.component.scss'
 })

@@ -1,19 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup,Validators } from '@angular/forms';
 import { map, Observable } from 'rxjs';
 import { FaceSnap } from '../models/face-snap';
-import { CommonModule, DatePipe, TitleCasePipe } from '@angular/common';
 import { FaceSnapService } from '../services/face-snaps.service';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-face-snap',
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    TitleCasePipe,
-    DatePipe
-  ],
+  standalone:false,
   templateUrl: './new-face-snap.component.html',
   styleUrl: './new-face-snap.component.scss'
 })
