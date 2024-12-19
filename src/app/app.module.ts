@@ -11,8 +11,9 @@ import { NewFaceSnapComponent } from "./new-face-snap/new-face-snap.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { AppRoutingModule } from "./app-routing.module.";
-import { provideHttpClient } from "@angular/common/http";
+import { HttpClientModule, provideHttpClient } from "@angular/common/http";
 import localeFrBe from '@angular/common/locales/fr-BE';
+import { httpInterceptorProviders } from "./interceptors";
 registerLocaleData(localeFrBe);
 
 
@@ -33,11 +34,12 @@ registerLocaleData(localeFrBe);
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
+    HttpClientModule
     
   ],
   providers: [
        { provide: LOCALE_ID, useValue: 'fr-BE' },
-       provideHttpClient()
+       httpInterceptorProviders
   ],
   bootstrap: [AppComponent]
 })
