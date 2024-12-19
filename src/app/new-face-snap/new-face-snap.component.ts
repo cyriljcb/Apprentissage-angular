@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup,Validators } from '@angular/forms';
-import { map, Observable } from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
 import { FaceSnap } from '../models/face-snap';
 import { FaceSnapService } from '../services/face-snaps.service';
 import { Router } from '@angular/router';
@@ -37,17 +37,17 @@ export class NewFaceSnapComponent implements OnInit{
     this.faceSnapPreview$ = this.snapForm.valueChanges.pipe(
       map(formValue=> ({
         ...formValue,  //... permet de récupérer tout les champs de formValue.
-        createdAt: new Date(),
+        createdDate: new Date(),
         id: 0,
         snaps: 0
       }))
     ); 
-
   }
 
   onSubmitForm():void{
-    this.faceSnapService.addFaceSnap(this.snapForm.value);
-    this.router.navigateByUrl('/facesnaps');
+    this.faceSnapService.addFaceSnap(this.snapForm.value).pipe(
+    tap(() => this.router.navigateByUrl('/facesnaps'))
+    ).subscribe();
   }
 
 
