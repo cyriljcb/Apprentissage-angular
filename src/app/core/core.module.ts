@@ -4,7 +4,8 @@ import { httpInterceptorProviders } from './interceptors';
 import { HeaderComponent } from './components/header/header.component';
 import localeFrBe from '@angular/common/locales/fr-BE';
 import { RouterModule } from '@angular/router';
-registerLocaleData(localeFrBe);
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ registerLocaleData(localeFrBe);
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule
   ],
   exports:[
     HeaderComponent
@@ -21,4 +23,8 @@ registerLocaleData(localeFrBe);
     httpInterceptorProviders,
   ]
 })
-export class CoreModule { }
+export class CoreModule { 
+  constructor(){
+    registerLocaleData(localeFrBe);
+  }
+}
