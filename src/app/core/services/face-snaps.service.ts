@@ -29,15 +29,6 @@ export class FaceSnapService {
         );
       }
 
-      // addFaceSnap(formValue: {title: string, description: string, imageUrl: string, location?: string}){
-      //   const faceSnap: FaceSnap = {
-      //     ...formValue,
-      //     createdDate: new Date(),
-      //     snaps : 0,
-      //     id: this.faceSnaps[this.faceSnaps.length-1].id+1
-      //   };
-      //   this.faceSnaps.push(faceSnap);
-      // }
       addFaceSnap(formValue: {title: string, description: string, imageUrl: string, location?: string}):Observable<FaceSnap>{
         
         return this.getAllFaceSnaps().pipe(
